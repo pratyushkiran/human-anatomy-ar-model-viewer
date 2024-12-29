@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Human Anatomy App</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css">
+
+</head>
+
+<body>
+  <div class="scroll-container">
+
+    <div class="section">
+      <div class="left">
+        <div>
+          <h1 id="landing-heading">Human Anatomy AR</h1>
+          <p id="landing-subheading">Explore Human Anatomy in 3D and AR.</p>
+        </div>
+      </div>
+      <div class="right">
+        <model-viewer src="src/assets/models/upperbody_skeleton_heart_lungs.glb" alt="Skeleton Upper Body" ar
+          auto-rotate camera-controls shadow-intensity="3"
+          skybox-image="src/assets/textures/vintage_measuring_lab_2k.jpg" skybox-height="0.5m" action="pan-y"
+          poster="src/assets/images/1.png">
+        </model-viewer>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="left">
+        <div>
+          <h1>Heart</h1>
+          <p>The heart is a vital muscular organ responsible for pumping blood through the body's circulatory system,
+            ensuring oxygen and nutrients reach every cell. It is located in the chest cavity, slightly to the left of
+            the center. The heart operates continuously, beating around 100,000 times a day to sustain life.</p>
+        </div>
+      </div>
+      <div class="right">
+        <model-viewer src="src/assets/models/human_heart.glb" auto-rotate ar ar-modes="webxr scene-viewer quick-look"
+          camera-controls tone-mapping="neutral" poster="src/assets/poster/heart.webp" shadow-intensity="1.38"
+          shadow-softness="0.56">
+          <button class="Hotspot" slot="hotspot-1"
+            data-position="1.4903266381185258m -2.0222887949824813m -0.032928632133386426m"
+            data-normal="0.7979653476997561m 0.2824734637776034m 0.5324096600662784m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Aorta</div>
+          </button><button class="Hotspot" slot="hotspot-2"
+            data-position="1.338908146417722m -1.9933463068884485m 0.05340805425665589m"
+            data-normal="0.43344761968714185m -0.348182250577776m 0.8311993030375722m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Vena Cava</div>
+          </button>
+          <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+          </div>
+          <div id="ar-prompt">
+            <img src="modelviewer_downloads/heart/ar_hand_prompt.png">
+          </div>
+        </model-viewer>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="left">
+        <div>
+          <h1>Lungs</h1>
+          <p>The lungs are essential organs of the respiratory system, responsible for exchanging oxygen and carbon
+            dioxide between the blood and the air we breathe. Located in the chest on either side of the heart, they are
+            protected by the ribcage. The lungs work tirelessly to support breathing, enabling oxygen to fuel the body’s
+            cells and removing waste gases. </p>
+        </div>
+      </div>
+      <div class="right">
+        <model-viewer src="src/assets/models/human_lungs.glb" alt="Human Lungs 3D model" ar auto-rotate camera-controls
+          shadow-intensity="3" action="pan-y" poster="src/assets/images/3.png">
+        </model-viewer>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="left">
+        <div>
+          <h1>Brain</h1>
+          <p>The human brain is a complex organ that serves as the control center for the body, responsible for
+            thoughts, emotions, memory, and coordinating bodily functions. It consists of billions of neurons and is
+            divided into regions such as the cerebrum, cerebellum, and brainstem, each with specialized roles. Protected
+            by the skull, the brain continuously processes sensory information and directs responses to sustain life and
+            enable learning.</p>
+        </div>
+      </div>
+      <div class="right">
+        <model-viewer src="src/assets/models/human_brain.glb" alt="Human Brain" ar auto-rotate camera-controls
+          shadow-intensity="3" action="pan-y">
+        </model-viewer>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="left">
+        <div>
+          <h1>Kidney</h1>
+          <p>The human kidneys are two bean-shaped organs located on either side of the spine, just below the ribcage,
+            responsible for filtering waste and excess fluids from the blood to form urine. They help regulate blood
+            pressure, electrolyte balance, and red blood cell production. Essential for maintaining the body's internal
+            environment, the kidneys ensure the removal of toxins and sustain overall health.</p>
+        </div>
+      </div>
+      <div class="right">
+        <model-viewer src="src/assets/models/human_kidney_4k.glb" ar ar-modes="webxr scene-viewer quick-look"
+          camera-controls tone-mapping="neutral" poster="src/assets/images/poster.webp" shadow-intensity="1"
+          auto-rotate>
+          <button class="Hotspot" slot="hotspot-2"
+            data-position="4.692513727992121m -2.02388244498715m 0.047843752841610465m"
+            data-normal="-0.730607267964344m 0.13510454669603217m 0.6692979765842243m"
+            data-visibility-attribute="visible">
+            1
+            <div class="HotspotAnnotation">Adrenal Gland</div>
+          </button>
+          <button class="Hotspot" slot="hotspot-3"
+            data-position="4.704738624003791m -2.345540604535261m 0.014712996985975238m"
+            data-normal="-0.8644856028312032m 0.10667093104474745m 0.49120866743942737m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Renal Pelvis</div>
+          </button>
+          <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar">
+            </div>
+          </div>
+          <div id="ar-prompt">
+            <img src="src/assets/images/ar_hand_prompt.png">
+          </div>
+        </model-viewer>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="left">
+        <div>
+          <h1>Diaphragm</h1>
+          <p>The human diaphragm is a dome-shaped muscle located beneath the lungs, playing a crucial role in breathing
+            by contracting and relaxing to allow air exchange. It separates the thoracic cavity (chest) from the
+            abdominal cavity and supports other functions like speech and coughing. The diaphragm also helps maintain
+            pressure within the abdomen, aiding in digestion and organ stability.</p>
+        </div>
+      </div>
+      <div class="right">
+        <model-viewer src="src/assets/models/human_diaphragm_4k.glb" alt="Human Diaphragm" ar auto-rotate
+          camera-controls shadow-intensity="3" action="pan-y">
+        </model-viewer>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="left">
+        <div>
+          <h1>Skeletal System</h1>
+          <p>The human skeletal system provides the framework for the body, supporting structure, protecting vital
+            organs, and enabling movement through joints and muscles. It consists of 206 bones in adulthood, along with
+            cartilage, ligaments, and tendons. The skeletal system also plays a crucial role in producing blood cells
+            and storing essential minerals like calcium and phosphorus.</p>
+        </div>
+      </div>
+      <div class="right">
+        <model-viewer src="src/assets/models/human_skeleton_1.6metres.glb" alt="Human Body Skeleton" ar auto-rotate
+          camera-controls shadow-intensity="3" action="pan-y" poster="src/assets/images/2.png" exposure="0.7">
+        </model-viewer>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/main.js"></script>
+
+</body>
+
+</html>
+
+
+<!-- skybox-image="src/assets/textures/brown_photostudio_01_2k.jpg" 
+skybox-height="1.8m" -->
