@@ -1,4 +1,14 @@
-// adds the ar buttopn for each model viewer
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (event) => {
+   //  Prevent the mini-infobar from appearing
+       event.preventDefault();
+       // Save the event for later use
+       deferredPrompt = event;
+       console.log("Install prompt saved");
+     });
+     
+    // // adds the ar buttopn for each model viewer
 document.querySelectorAll('model-viewer').forEach((modelViewer) => {
   const button = document.createElement('button');
   button.setAttribute('slot', 'ar-button');
@@ -45,3 +55,16 @@ const onProgress = (event) => {
   }
 };
 document.querySelector('model-viewer').addEventListener('progress', onProgress);
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        console.log("Service Worker registered with scope:", registration.scope);
+      })
+      .catch((error) => {
+        console.log("Service Worker registration failed:", error);
+      });
+  });
+}

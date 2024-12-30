@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="src/style.css">
+  <link rel="manifest" href="/manifest.json">
+
 </head>
 
 <body>
@@ -78,9 +80,30 @@
         </div>
       </div>
       <div class="right">
-        <model-viewer src="src/assets/models/human_lungs.glb" alt="Human Lungs 3D model" ar auto-rotate camera-controls
-          shadow-intensity="3" action="pan-y" poster="src/assets/images/3.png">
-        </model-viewer>
+        <model-viewer src="src/assets/models/human_lungs.glb" ar ar-modes="webxr scene-viewer quick-look"
+          camera-controls tone-mapping="neutral" poster="src/assets/poster/lungs.webp" shadow-intensity="1" auto-rotate>
+          <button class="Hotspot" slot="hotspot-1"
+            data-position="2.5285844620449107m -1.914308386822155m -0.06808055704727113m"
+            data-normal="-0.9629893883780267m -0.1620368768653782m 0.21539611975852352m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Thyroid Cartilage</div>
+          </button><button class="Hotspot" slot="hotspot-2"
+            data-position="2.552044530422986m -1.8508852311116464m -0.011033102078357573m"
+            data-normal="-0.2373048119797634m -0.40153944924091584m 0.8845634499087962m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Trachea</div>
+          </button><button class="Hotspot" slot="hotspot-3"
+            data-position="2.525485640013939m -2.1497380724762203m -0.07065790323911493m"
+            data-normal="-0.24163096611902873m 0.3669412054471633m 0.8983143258110535m"
+            data-visibility-attribute="visible">
+            <div class="HotspotAnnotation">Primary Bronchi</div>
+          </button>
+          <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+          </div>
+          <div id="ar-prompt">
+            <img src="ar_hand_prompt.png">
+          </div>
       </div>
     </div>
 
@@ -136,7 +159,7 @@
             </div>
           </div>
           <div id="ar-prompt">
-            <img src="src/assets/images/ar_hand_prompt.png">
+            <img src="src/assets/images/ar_hand_prompt-human-hand.png">
           </div>
         </model-viewer>
       </div>

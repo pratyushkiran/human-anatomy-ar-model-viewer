@@ -52,6 +52,7 @@ body {
   margin: 0;
   font-size: 80px;
   color: white;
+  padding: 0 !important;
 }
 
 .left p {
@@ -222,7 +223,7 @@ model-viewer[ar-status="session-started"] > #ar-prompt {
 }
 
 model-viewer > #ar-prompt > img {
-  height: 60px;
+  height: 150px;
   animation: circle 4s linear infinite;
 }     
 
