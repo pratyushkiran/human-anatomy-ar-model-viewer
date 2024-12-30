@@ -21,12 +21,17 @@
     ],
     "screenshots": [
       {
-        "src": "/screenshots/home.png",
+        "src": "src/assets/screenshots/Screenshot_20241230-171322.png",
         "sizes": "1080x1920",
         "type": "image/png"
       },
       {
-        "src": "/screenshots/ar-mode.png",
+        "src": "src/assets/screenshots/Screenshot_20241230-171331.png",
+        "sizes": "1080x1920",
+        "type": "image/png"
+      },
+      {
+        "src": "src/assets/screenshots/Screenshot_20241230-171412.png",
         "sizes": "1080x1920",
         "type": "image/png"
       }
