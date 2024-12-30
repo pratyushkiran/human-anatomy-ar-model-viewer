@@ -1,0 +1,13 @@
+{
+    "name": "AR Human Anatomy",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "icons": [
+      {
+        "src": "src/assets/images/1.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
+  

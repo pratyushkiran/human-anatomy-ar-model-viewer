@@ -1,31 +1,21 @@
-let deferredPrompt;
-
-window.addEventListener("beforeinstallprompt", (event) => {
-   //  Prevent the mini-infobar from appearing
-       event.preventDefault();
-       // Save the event for later use
-       deferredPrompt = event;
-       console.log("Install prompt saved");
-     });
-     
-    // // adds the ar buttopn for each model viewer
+// Adds the AR button for each <model-viewer>
 document.querySelectorAll('model-viewer').forEach((modelViewer) => {
   const button = document.createElement('button');
   button.setAttribute('slot', 'ar-button');
   button.style.cssText = `
-  font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Montserrat", Arial, sans-serif;
     background-color: white;
     border-radius: 50px;
     border: none;
     position: absolute;
-    bottom: 16px; /* Adjust the distance from the bottom */
-    left: 50%; /* Align the button's center horizontally */
-    transform: translateX(-50%); /* Offset to center the button */
-    display: flex;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none; /* Hidden by default */
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 8px 12px; /* Adjust padding for better appearance */
+    padding: 8px 12px;
     font-weight: 500;
   `;
 
@@ -40,13 +30,25 @@ document.querySelectorAll('model-viewer').forEach((modelViewer) => {
   button.appendChild(img);
   button.appendChild(span);
   modelViewer.appendChild(button);
+
+  // Show AR button only when the model is fully loaded
+  modelViewer.addEventListener('model-visibility', (event) => {
+    if (event.detail.visible) {
+      button.style.display = 'flex';
+    }
+  });
 });
 
-// Handles loading the events for <model-viewer>'s slotted progress bar
+// Handles loading events for <model-viewer>'s progress bar
 const onProgress = (event) => {
   const progressBar = event.target.querySelector('.progress-bar');
   const updatingBar = event.target.querySelector('.update-bar');
+  
+  // Ensure styles are applied correctly
+  if (!progressBar || !updatingBar) return;
+
   updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
+
   if (event.detail.totalProgress === 1) {
     progressBar.classList.add('hide');
     event.target.removeEventListener('progress', onProgress);
@@ -54,17 +56,8 @@ const onProgress = (event) => {
     progressBar.classList.remove('hide');
   }
 };
-document.querySelector('model-viewer').addEventListener('progress', onProgress);
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/service-worker.js")
-      .then((registration) => {
-        console.log("Service Worker registered with scope:", registration.scope);
-      })
-      .catch((error) => {
-        console.log("Service Worker registration failed:", error);
-      });
-  });
-}
+// Add progress event listener to each <model-viewer>
+document.querySelectorAll('model-viewer').forEach((modelViewer) => {
+  modelViewer.addEventListener('progress', onProgress);
+});

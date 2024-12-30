@@ -137,7 +137,6 @@ model-viewer {
   transition: transform 0.3s, opacity 0.3s;
 }
 
-
 .progress-bar {
   display: block;
   width: 33%;
@@ -206,8 +205,8 @@ model-viewer {
 }
 
 @keyframes elongate {
-  from { transform: translateX(100px); }
-  to   { transform: translateX(-100px); }
+  from { transform: translateX(80px); }
+  to   { transform: translateX(-80px); }
 }
 
 model-viewer > #ar-prompt {

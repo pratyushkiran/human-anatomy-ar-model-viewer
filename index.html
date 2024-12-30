@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="src/style.css">
+  <link rel="manifest" href="manifest.json" />
 </head>
+
 <body>
   <div class="scroll-container">
 
@@ -24,8 +27,14 @@
       <div class="right">
         <model-viewer src="src/assets/models/upperbody_skeleton_heart_lungs.glb" alt="Skeleton Upper Body" ar
           auto-rotate camera-controls shadow-intensity="3"
-          skybox-image="src/assets/textures/vintage_measuring_lab_2k.jpg" skybox-height="0.5m" action="pan-y"
+          skybox-image="src/assets/textures/vintage_measuring_lab_2k.jpg" skybox-height="0.5m" touch-action="pan-y"
           poster="src/assets/images/1.png">
+          <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+          </div>
+          <div id="ar-prompt">
+            <img src="src/assets/images/ar_hand_prompt-human-hand.png">
+          </div>
         </model-viewer>
       </div>
     </div>
@@ -42,7 +51,7 @@
       <div class="right">
         <model-viewer src="src/assets/models/human_heart.glb" auto-rotate ar ar-modes="webxr scene-viewer quick-look"
           camera-controls tone-mapping="neutral" poster="src/assets/poster/heart.webp" shadow-intensity="1.38"
-          shadow-softness="0.56">
+          shadow-softness="0.56" touch-action="pan-y">
           <button class="Hotspot" slot="hotspot-1"
             data-position="1.4903266381185258m -2.0222887949824813m -0.032928632133386426m"
             data-normal="0.7979653476997561m 0.2824734637776034m 0.5324096600662784m"
@@ -76,7 +85,8 @@
       </div>
       <div class="right">
         <model-viewer src="src/assets/models/human_lungs.glb" ar ar-modes="webxr scene-viewer quick-look"
-          camera-controls tone-mapping="neutral" poster="src/assets/poster/lungs.webp" shadow-intensity="1" auto-rotate>
+          camera-controls tone-mapping="neutral" poster="src/assets/poster/lungs.webp" shadow-intensity="1" auto-rotate
+          touch-action="pan-y">
           <button class="Hotspot" slot="hotspot-1"
             data-position="2.5285844620449107m -1.914308386822155m -0.06808055704727113m"
             data-normal="-0.9629893883780267m -0.1620368768653782m 0.21539611975852352m"
@@ -115,7 +125,7 @@
       </div>
       <div class="right">
         <model-viewer src="src/assets/models/human_brain.glb" alt="Human Brain" ar auto-rotate camera-controls
-          shadow-intensity="3" action="pan-y">
+          shadow-intensity="3" touch-action="pan-y">
         </model-viewer>
       </div>
     </div>
@@ -132,8 +142,8 @@
       </div>
       <div class="right">
         <model-viewer src="src/assets/models/human_kidney_4k.glb" ar ar-modes="webxr scene-viewer quick-look"
-          camera-controls tone-mapping="neutral" poster="src/assets/images/poster.webp" shadow-intensity="1"
-          auto-rotate>
+          camera-controls tone-mapping="neutral" poster="src/assets/images/poster.webp" shadow-intensity="1" auto-rotate
+          touch-action="pan-y">
           <button class="Hotspot" slot="hotspot-2"
             data-position="4.692513727992121m -2.02388244498715m 0.047843752841610465m"
             data-normal="-0.730607267964344m 0.13510454669603217m 0.6692979765842243m"
@@ -170,7 +180,7 @@
       </div>
       <div class="right">
         <model-viewer src="src/assets/models/human_diaphragm_4k.glb" alt="Human Diaphragm" ar auto-rotate
-          camera-controls shadow-intensity="3" action="pan-y">
+          camera-controls shadow-intensity="3" touch-action="pan-y">
         </model-viewer>
       </div>
     </div>
@@ -187,11 +197,12 @@
       </div>
       <div class="right">
         <model-viewer src="src/assets/models/human_skeleton_1.6metres.glb" alt="Human Body Skeleton" ar auto-rotate
-          camera-controls shadow-intensity="3" action="pan-y" poster="src/assets/images/2.png" exposure="0.7">
+          camera-controls shadow-intensity="3" touch-action="pan-y" poster="src/assets/images/2.png" exposure="0.7">
         </model-viewer>
       </div>
     </div>
   </div>
   <script src="src/main.js"></script>
 </body>
+
 </html>
